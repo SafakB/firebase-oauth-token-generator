@@ -1,3 +1,8 @@
+## 🌍 Languages
+
+- [English](README.en.md)
+- [Türkçe](README.md)
+
 # Firebase OAuth 2.0 Token Generator
 
 Firebase Service Account kullanarak OAuth 2.0 Access Token oluşturan profesyonel Node.js uygulaması.
@@ -185,7 +190,3 @@ Sorularınız için:
 - Pull request gönderin
 - Dokümantasyonu kontrol edin
 
-## 🌍 Diller
-
-- [English](README.en.md)
-- [Türkçe](README.md)
