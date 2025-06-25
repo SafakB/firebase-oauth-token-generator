@@ -33,10 +33,10 @@ class FirebaseTokenApp {
         try {
             console.log(`🚀 ${this.config.app.name} v${this.config.app.version}`);
             console.log('================================================');
-            
+
             await this.validateEnvironment();
             await this.generateToken();
-            
+
         } catch (error) {
             console.error('❌ Hata:', error.message);
             process.exit(1);
@@ -48,15 +48,15 @@ class FirebaseTokenApp {
      */
     async validateEnvironment() {
         console.log('🔍 Çevre kontrolleri yapılıyor...');
-        
+
         // Service account dosyası kontrolü
         if (!fileExists(this.serviceAccountPath)) {
             throw new Error(`Service account dosyası bulunamadı: ${this.serviceAccountPath}`);
         }
-        
+
         // Output klasörünü oluştur
         ensureDirectoryExists(this.outputPath);
-        
+
         console.log('✅ Çevre kontrolleri tamamlandı.');
     }
 
@@ -65,26 +65,26 @@ class FirebaseTokenApp {
      */
     async generateToken() {
         console.log('🔑 Firebase OAuth token üretiliyor...');
-        
+
         const tokenManager = new FirebaseTokenManager(this.serviceAccountPath, this.scopes);
         const tokenData = await tokenManager.getAccessToken();
-        
+
         // Token bilgilerini göster
         tokenManager.displayTokenInfo(tokenData);
-        
+
         // Postman format
         const postmanHeaders = tokenManager.getPostmanFormat(tokenData);
         console.log('📮 Postman için Header bilgileri:');
         console.log(JSON.stringify(postmanHeaders, null, 2));
-        
+
         // cURL format
         const curlHeaders = tokenManager.getCurlFormat(tokenData);
         console.log('\n🌐 cURL için Header bilgileri:');
         console.log(curlHeaders);
-        
+
         // Token'ı dosyaya kaydet
         await this.saveTokenData(tokenData, postmanHeaders, curlHeaders);
-        
+
         return tokenData;
     }
 
@@ -114,7 +114,7 @@ class FirebaseTokenApp {
         };
 
         writeJsonFile(this.tokenFilePath, outputData, this.config.output.prettyPrint);
-        
+
         console.log(`\n💾 Token bilgileri kaydedildi:`);
         console.log(`   📁 ${this.tokenFilePath}`);
     }
@@ -126,10 +126,10 @@ class FirebaseTokenApp {
         if (fileExists(this.tokenFilePath)) {
             const { readJsonFile } = require('./utils/fileUtils');
             const tokenData = readJsonFile(this.tokenFilePath);
-            
+
             console.log('\n📋 Mevcut Token Durumu:');
             console.log('========================');
-            
+
             if (isTokenValid(tokenData)) {
                 const remainingTime = Math.floor((tokenData.expires_at - Date.now()) / 1000);
                 console.log(`✅ Token geçerli (${remainingTime} saniye kalan)`);
@@ -145,10 +145,10 @@ class FirebaseTokenApp {
  */
 async function main() {
     const app = new FirebaseTokenApp();
-    
+
     // Mevcut token durumunu kontrol et
     app.checkExistingToken();
-    
+
     // Yeni token üret
     await app.run();
 }

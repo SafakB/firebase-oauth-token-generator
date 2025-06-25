@@ -42,7 +42,7 @@ class FirebaseTokenManager {
     async getAccessToken() {
         try {
             const serviceAccount = this.loadServiceAccount();
-            
+
             // JWT Auth client oluştur
             const jwtClient = new google.auth.JWT(
                 serviceAccount.client_email,
@@ -54,7 +54,7 @@ class FirebaseTokenManager {
 
             // Token al
             const tokens = await jwtClient.authorize();
-            
+
             return {
                 access_token: tokens.access_token,
                 token_type: tokens.token_type || 'Bearer',

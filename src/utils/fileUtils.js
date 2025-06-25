@@ -74,7 +74,7 @@ function isTokenValid(tokenData) {
     if (!tokenData || !tokenData.expires_at) {
         return false;
     }
-    
+
     return Date.now() < tokenData.expires_at;
 }
 

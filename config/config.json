@@ -1,32 +1,36 @@
 {
-  "app": {
-    "name": "Firebase OAuth Token Generator",
-    "version": "1.0.0",
-    "description": "Firebase Service Account ile OAuth 2.0 Access Token oluşturucu"
-  },
-  "paths": {
-    "serviceAccount": "./config/firebase-service-account.json",
-    "outputDir": "./output",
-    "tokenFile": "firebase-access-token.json"
-  },
-  "firebase": {
-    "defaultScopes": [
-      "https://www.googleapis.com/auth/firebase.messaging"
-    ],
-    "availableScopes": [
-      "https://www.googleapis.com/auth/firebase.messaging",
-      "https://www.googleapis.com/auth/firebase.database",
-      "https://www.googleapis.com/auth/firebase.readonly",
-      "https://www.googleapis.com/auth/userinfo.email"
-    ]
-  },
-  "token": {
-    "defaultExpiration": 3600,
-    "warningThreshold": 300
-  },
-  "output": {
-    "formats": ["json", "postman", "curl"],
-    "prettyPrint": true,
-    "includeMetadata": true
-  }
+    "app": {
+        "name": "Firebase OAuth Token Generator",
+        "version": "1.0.0",
+        "description": "Firebase Service Account ile OAuth 2.0 Access Token oluşturucu"
+    },
+    "paths": {
+        "serviceAccount": "./config/firebase-service-account.json",
+        "outputDir": "./output",
+        "tokenFile": "firebase-access-token.json"
+    },
+    "firebase": {
+        "defaultScopes": [
+            "https://www.googleapis.com/auth/firebase.messaging"
+        ],
+        "availableScopes": [
+            "https://www.googleapis.com/auth/firebase.messaging",
+            "https://www.googleapis.com/auth/firebase.database",
+            "https://www.googleapis.com/auth/firebase.readonly",
+            "https://www.googleapis.com/auth/userinfo.email"
+        ]
+    },
+    "token": {
+        "defaultExpiration": 3600,
+        "warningThreshold": 300
+    },
+    "output": {
+        "formats": [
+            "json",
+            "postman",
+            "curl"
+        ],
+        "prettyPrint": true,
+        "includeMetadata": true
+    }
 }
