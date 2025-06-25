@@ -37,7 +37,7 @@ firebase-oauth-token-generator/
 
 1. **Repository'yi klonlayın:**
 ```bash
-git clone <repository-url>
+git clone https://github.com/SafakB/firebase-oauth-token-generator.git
 cd firebase-oauth-token-generator
 ```
 
@@ -184,3 +184,8 @@ Sorularınız için:
 - Issue açın
 - Pull request gönderin
 - Dokümantasyonu kontrol edin
+
+## 🌍 Diller
+
+- [English](README.en.md)
+- [Türkçe](README.md)
