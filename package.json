@@ -1,0 +1,27 @@
+{
+  "name": "firebase-oauth-token-generator",
+  "version": "1.0.0",
+  "description": "Firebase Service Account ile OAuth 2.0 Access Token oluşturucu",
+  "main": "src/app.js",
+  "bin": {
+    "firebase-token": "./src/app.js"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "token": "node src/app.js",
+    "dev": "node src/app.js",
+    "check": "node -e \"const app = require('./src/app.js'); new app().checkExistingToken()\""
+  },
+  "dependencies": {
+    "googleapis": "^134.0.0"
+  },
+  "keywords": [
+    "firebase",
+    "oauth",
+    "token",
+    "service-account",
+    "fcm"
+  ],
+  "author": "Firebase Token Generator",
+  "license": "MIT"
+}
