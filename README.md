@@ -53,7 +53,46 @@ npm install
 
 3. **Firebase Service Account dosyasını ekleyin:**
    - Firebase Console'dan service account anahtarını indirin
-   - `config/firebase-service-account.json` olarak kaydedin
+   - **ÖNEMLİ:** Dosyayı `config/firebase-service-account.json` olarak kaydedin
+   - Detaylı adımlar için aşağıdaki "Firebase Service Account Nasıl Alınır?" bölümüne bakın
+
+## 🔑 Firebase Service Account Nasıl Alınır?
+
+### Adım 1: Firebase Console'a Giriş
+1. [Firebase Console](https://console.firebase.google.com/) adresine gidin
+2. Projenizi seçin veya yeni bir proje oluşturun
+
+### Adım 2: Service Account Oluşturma
+1. Sol menüden **"Proje Ayarları"** (⚙️) simgesine tıklayın
+2. **"Service accounts"** sekmesine geçin
+3. **"Generate new private key"** butonuna tıklayın
+4. Açılan pencerede **"Generate key"** butonuna tıklayın
+5. JSON dosyası otomatik olarak indirilecektir
+
+### Adım 3: Dosyayı Projeye Ekleme
+1. İndirilen JSON dosyasını projenizin `config/` klasörüne kopyalayın
+2. Dosya adını **`firebase-service-account.json`** olarak değiştirin
+3. **ÖNEMLİ:** Bu dosya hassas bilgiler içerir, `.gitignore` dosyasında zaten korunmaktadır
+
+### Dosya Yapısı Örneği
+```json
+{
+  "type": "service_account",
+  "project_id": "your-project-id",
+  "private_key_id": "key-id",
+  "private_key": "-----BEGIN PRIVATE KEY-----\n...",
+  "client_email": "firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com",
+  "client_id": "client-id",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token"
+}
+```
+
+### ⚠️ Güvenlik Uyarıları
+- Service account anahtarını **asla** public repository'lerde paylaşmayın
+- Dosya `.gitignore` ile korunmaktadır
+- Production ortamında environment variables kullanın
+- Anahtarı düzenli olarak yenileyin
 
 ## 🎯 Kullanım
 

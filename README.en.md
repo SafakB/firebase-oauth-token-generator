@@ -48,7 +48,46 @@ npm install
 
 3. **Add Firebase Service Account file:**
    - Download service account key from Firebase Console
-   - Save as `config/firebase-service-account.json`
+   - **IMPORTANT:** Save as `config/firebase-service-account.json`
+   - See detailed steps in "How to Get Firebase Service Account?" section below
+
+## 🔑 How to Get Firebase Service Account?
+
+### Step 1: Access Firebase Console
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Select your project or create a new one
+
+### Step 2: Create Service Account
+1. Click on **"Project Settings"** (⚙️) icon in the left menu
+2. Switch to **"Service accounts"** tab
+3. Click **"Generate new private key"** button
+4. In the popup window, click **"Generate key"** button
+5. JSON file will be downloaded automatically
+
+### Step 3: Add File to Project
+1. Copy the downloaded JSON file to your project's `config/` folder
+2. Rename the file to **`firebase-service-account.json`**
+3. **IMPORTANT:** This file contains sensitive information, it's already protected in `.gitignore`
+
+### File Structure Example
+```json
+{
+  "type": "service_account",
+  "project_id": "your-project-id",
+  "private_key_id": "key-id",
+  "private_key": "-----BEGIN PRIVATE KEY-----\n...",
+  "client_email": "firebase-adminsdk-xxxxx@your-project.iam.gserviceaccount.com",
+  "client_id": "client-id",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token"
+}
+```
+
+### ⚠️ Security Warnings
+- **Never** share service account keys in public repositories
+- File is protected by `.gitignore`
+- Use environment variables in production
+- Regularly rotate your keys
 
 ## 🎯 Usage
 
