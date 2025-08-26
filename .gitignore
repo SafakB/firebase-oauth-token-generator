@@ -5,7 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Firebase Service Account (Sensitive)
-config/firebase-service-account.json
+config/firebase-service-account*.json
 
 # Generated Tokens
 output/*.json
